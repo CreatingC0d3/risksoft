@@ -1,0 +1,26 @@
+Modules:
+    Os
+    Sys
+    Termcolor
+    pymongo_get_database
+    pymongo
+    dateutil
+
+Files:
+    App
+    Functions
+        clear
+        back
+        validarDato
+        newElement
+    Registers
+    Login
+    View
+        home
+        list
+        admin
+        navbar
+        errorPage
+    Search
+    Elements
+    pymongo_get_database
