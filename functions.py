@@ -57,10 +57,10 @@ def newElement(team_up, main, team_cals, team_weight):
     
     elem_list = []    
     
-    while team_cals<15 and team_weight<10:
-        print('Calorias actuales: ', team_cals)
-        print('Peso actual: ', team_weight)
-        
+    while team_weight<10:
+        print('Current calories: ', team_cals)
+        print('Current weight: ', team_weight)
+        print('\n')
         cal = float(input("Enter calories: "))
         weight = float(input("Enter weight: "))
         
@@ -82,23 +82,24 @@ def newElement(team_up, main, team_cals, team_weight):
         elem = {"team_name": team_up, "team_cals": cal, "team_weight" : weight}
         if team_weight <= 10:
             elem_list.append(elem)
+            
+            if team_weight < 10:
+                print('\n')
+                fin = str(input(colored('Do you want save more records? (y/n): ', 'yellow')))
+                if fin == 'y':
+                    continue
+                else:
+                    break
         else:
-            print('Weight is wrong, record not saved!')
+            print(colored('Weight is wrong, record not saved!', 'red'))
         
-        if team_weight < 10:
-            print('\n')
-            fin = str(input("Do you want save more records? (y/n): "))
-            if fin == 'y':
-                continue
-            else:
-                break
         
     #insert
     dbname = get_database()
     collection_name = dbname["elem_list"]
     
     if team_weight >= 10 and team_cals < 15:
-        print('It is not possible to save the records because it exceeds the parameters.')
+        print(colored('It is not possible to save the records because it exceeds the parameters.', 'red'))
         
     elif team_cals >= 15 and team_weight <= 10 or team_cals < 15 and team_weight < 10:
         collection_name.insert_many(elem_list)
@@ -106,4 +107,3 @@ def newElement(team_up, main, team_cals, team_weight):
         print(colored('Registered elements successfully!', 'green'))
         
     back(main)
-               

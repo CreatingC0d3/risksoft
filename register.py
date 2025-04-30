@@ -40,7 +40,7 @@ def register(main):
     #insert
     collection_name.insert_one(team_dict)
     print("\n")
-    print(colored('Registered user successfully!', 'green'))
+    print(colored('Registered team successfully!', 'green'))
     back(main)
 
 

@@ -39,8 +39,9 @@ def regElements(main):
             print("\n")
             print(colored('Weight is limited!', 'red'))
             back(main) 
-                        
-        newElement(team_up=team_up, main=main, team_cals=sum_cals, team_weight=sum_weight) 
+        
+        elif sum_weight < 10:
+            newElement(team_up=team_up, main=main, team_cals=sum_cals, team_weight=sum_weight)
 
     else:
         print("\n")
